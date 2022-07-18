@@ -13,5 +13,7 @@ services:
       - POSTGRES_DB=postgres
     volumes:
       - ./data:/var/lib/postgresql/data
+      - ./scripts/role.sql:/docker-entrypoint-initdb.d/role.sql
+      - ./scripts/tablespace.sql:/docker-entrypoint-initdb.d/tablespace.sql
     ports:
       - ${POSTGRES_PORT:-5432}:5432

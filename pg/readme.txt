@@ -1,10 +1,14 @@
 1) запуск docker-compose
-docker-compose -f docker-compose.yсml up -d
+	docker-compose -f docker-compose.yсml up -d
 или
-docker-compose up -d
+	docker-compose up -d
+Ключ -d указывает, что docker-compose должен быть запущен в в фоновом режиме (вернет управление после его запуска).
 
 2) остановить 
-docker-compose down -v
+	sudo docker-compose stop
+или
+	docker-compose down -v
+Stop and remove containers, networks. Ключ -v указывает, что так же нужно удалить volume
 
 3) подключить через bash
 - получить список запущенных контейнеров
