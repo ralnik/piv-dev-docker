@@ -1,0 +1,3 @@
+1) Отчищаем каталог data
+2) Запускаем mkdirs.bat
+3) docker-compose up -d

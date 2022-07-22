@@ -1,0 +1,5 @@
+postgres
+qwerty
+
+если забыл пароль на postgres:
+ALTER USER Postgres WITH PASSWORD 'qwerty'
