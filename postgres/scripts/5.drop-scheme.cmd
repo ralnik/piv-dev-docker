@@ -1,1 +1,0 @@
-"C:\Program Files\PostgreSQL\13\bin\psql" -U postgres -c "DROP SCHEMA piv CASCADE"

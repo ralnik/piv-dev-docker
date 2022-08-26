@@ -1,5 +1,12 @@
 set ROOT=%CD%
-rmdir tablespace
+
+rmdir /s /q data
+if not exist data mkdir data
+
+rmdir /s /q dump
+if not exist dump mkdir dump
+
+rmdir /s /q tablespace
 if not exist %ROOT%\tablespace mkdir %ROOT%\tablespace
 if not exist %ROOT%\tablespace\aisdata mkdir %ROOT%\tablespace\aisdata
 if not exist %ROOT%\tablespace\aisindex mkdir %ROOT%\tablespace\aisindex
