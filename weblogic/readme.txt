@@ -22,3 +22,9 @@ Stop and remove containers, networks. Ключ -v указывает, что т�
 
 4) Перезагрузка weblogic
 docker-compose restart weblogic10.3
+
+5) Консоль weblogic
+http://localhost:7001/console
+
+login: weblogic
+password: Oracle@123
