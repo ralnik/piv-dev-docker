@@ -1,4 +1,2 @@
-1) Отчищаем каталог data. Если его нет, то создаем.
-2) Запускаем mkdirs.bat
-3) docker-compose up -d
-4)
+1) Запускаем mkdirs.bat (linux: $ bash -x ./mkdirs.sh)
+2) docker-compose up -d
