@@ -15,3 +15,22 @@ Stop and remove containers, networks. Ключ -v указывает, что т�
    docker ps
 - скопировать нужный CONTAINER ID
   docker exec -it <CONTAINER ID> bash
+
+4) cd /var/lib/postgresql/sctipts
+   bash -x ./mkdirs.sh
+
+5) Дать полный доступ ко всей директории /opt/postgres
+   chmod ugo+rwx -vR /opt/postgres
+
+6) Дать доступ пользователю postgres ко всей директории /opt/postgres
+   chown postgres:postgres -vR /opt/postgres
+
+7) Подключиться к postgresql:
+   psql -U postgres
+
+8) Выполнить запросы:
+
+   postgres=# \i /var/lib/postgresql/scripts/tablespace.sql
+   postgres=# \i /var/lib/postgresql/scripts/role.sql
+
+9)
