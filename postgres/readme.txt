@@ -16,7 +16,7 @@ Stop and remove containers, networks. Ключ -v указывает, что т�
 - скопировать нужный CONTAINER ID
   docker exec -it <CONTAINER ID> bash
 
-4) cd /var/lib/postgresql/sctipts
+4) cd /opt/postgres/sctipts
    bash -x ./mkdirs.sh
 
 5) Дать полный доступ ко всей директории /opt/postgres
@@ -30,7 +30,7 @@ Stop and remove containers, networks. Ключ -v указывает, что т�
 
 8) Выполнить запросы:
 
-   postgres=# \i /var/lib/postgresql/scripts/tablespace.sql
-   postgres=# \i /var/lib/postgresql/scripts/role.sql
+   postgres=# \i /opt/postgres/scripts/tablespace.sql
+   postgres=# \i /opt/postgres/scripts/role.sql
 
 9)

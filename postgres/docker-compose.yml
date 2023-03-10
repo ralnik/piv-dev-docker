@@ -12,7 +12,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
     volumes:
-      - ./data:/var/lib/postgresql/data:rw
-      - ./scripts:/var/lib/postgresql/scripts
+      - ./data:/opt/postgres/data:rwx
+      - ./scripts:/opt/postgres/scripts:rwx
     ports:
       - ${POSTGRES_PORT:-5432}:5432
