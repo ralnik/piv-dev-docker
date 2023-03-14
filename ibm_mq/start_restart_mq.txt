@@ -1,0 +1,43 @@
+docker run -d -e LICENSE=accept ibmcom/mq
+4b5c1547289d532109ec13e058c2bf2f73edd5a3942ee73451d743e5ef20c278
+$ docker exec -ti 4b5 bash
+bash-4.4$ ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+1001         1     0  2 15:59 ?        00:00:00 runmqserver -nologruntime -dev
+1001        52     1  0 15:59 ?        00:00:00 /bin/sh /opt/mqm/bin/strmqweb
+1001       152    52  0 15:59 ?        00:00:00 /bin/sh /opt/mqm/web/bin/server start mqweb
+1001       175   152 99 15:59 ?        00:00:22 /opt/mqm/java/jre64/jre/bin/java -javaagent:/opt/mqm/web/bin/tools/ws-javaagent.jar -Djava.awt.headless=true -Djdk.attach.allowAttachSelf=true -XX:MaxPermSize=256m -Djdk.tls.ephemeralDHKey
+1001       176   152  8 15:59 ?        00:00:00 /opt/mqm/java/jre64/jre/bin/java -javaagent:/opt/mqm/web/bin/tools/ws-javaagent.jar -Djava.awt.headless=true -Djdk.attach.allowAttachSelf=true -jar /opt/mqm/web/bin/tools/ws-server.jar mqw
+1001       229     1  1 15:59 ?        00:00:00 /opt/mqm/bin/amqzxma0 -m 4b5c1547289d -x -u mqm
+1001       245   229  0 15:59 ?        00:00:00 /opt/mqm/bin/amqzfuma -m 4b5c1547289d
+1001       250   229  0 15:59 ?        00:00:00 /opt/mqm/bin/amqzmgr0 -m 4b5c1547289d
+1001       253   229  1 15:59 ?        00:00:00 /opt/mqm/bin/amqzmuc0 -m 4b5c1547289d
+1001       271   229  0 15:59 ?        00:00:00 /opt/mqm/bin/amqzmur0 -m 4b5c1547289d
+1001       300   229  0 15:59 ?        00:00:00 /opt/mqm/bin/amqzmuf0 -m 4b5c1547289d
+1001       316   229  0 15:59 ?        00:00:00 /opt/mqm/bin/amqrrmfa -m 4b5c1547289d -t2332800 -s2592000 -p2592000 -g5184000 -c3600
+1001       339   250  0 15:59 ?        00:00:00 /opt/mqm/bin/runmqchi -m 4b5c1547289d -q SYSTEM.CHANNEL.INITQ -r
+1001       343   250  0 15:59 ?        00:00:00 /opt/mqm/bin/amqpcsea 4b5c1547289d
+1001       346   250  0 15:59 ?        00:00:00 /opt/mqm/bin/runmqlsr -r -m 4b5c1547289d -t TCP -p 1414
+1001       353   229  0 15:59 ?        00:00:00 /opt/mqm/bin/amqzlaa0 -m4b5c1547289d -fip0
+1001       358   300  0 15:59 ?        00:00:00 /opt/mqm/bin/amqfqpub -m4b5c1547289d
+1001       391   358  0 15:59 ?        00:00:00 /opt/mqm/bin/amqfcxba -m 4b5c1547289d
+1001       446     0  1 15:59 pts/0    00:00:00 bash
+1001       454   446  1 15:59 pts/0    00:00:00 ps -ef
+bash-4.4$ dspmqweb
+MQWB1124I: Server 'mqweb' is running.
+MQWB1121E: The status of the mqweb server applications cannot be determined.
+A request was made to read the status of the deployed mqweb server applications, however the data was not available. This may indicate that there is already an mqweb server started on this system, probably related to another IBM MQ instance.
+Check the startup logs for the mqweb server, looking in particular for conflicting usage of network ports. Ensure that if you have multiple mqweb servers on a system, they are configured to use distinct network ports. Restart the mqweb server and ensure it started correctly. If the problem persists, seek assistance from IBM support.
+bash-4.4$ endmqweb
+
+Stopping server mqweb.
+Server mqweb stopped.
+bash-4.4$ strmqweb
+
+Starting server mqweb.
+Server mqweb started with process ID 759.
+bash-4.4$ dspmqweb
+MQWB1124I: Server 'mqweb' is running.
+MQWB1123E: The status of the mqweb server applications cannot be determined.
+A request was made to read the status of the deployed mqweb server applications, however the data appears corrupt. This may indicate that there is already an mqweb server started on this system, probably related to another IBM MQ instance.
+Check the startup logs for the mqweb server, looking in particular for conflicting usage of network ports. Ensure that if you have multiple mqweb servers on a system, they are configured to use distinct network ports. Restart the mqweb server and ensure it started correctly. If the problem persists, seek assistance from IBM support.
