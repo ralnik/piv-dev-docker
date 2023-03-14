@@ -1,9 +1,9 @@
 version: '10.3'
 
 services:
-    weblogic10.3:
-        image: vulhub/weblogic
-        container_name: weblogic10.3
+    weblogic:
+        image: ismaleiva90/weblogic12:latest
+        container_name: weblogic
         networks:
             - testNetWork
         ports:
