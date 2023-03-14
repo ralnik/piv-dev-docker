@@ -17,7 +17,14 @@ Stop and remove containers, networks. Ключ -v указывает, что т�
   docker exec -it <CONTAINER ID> bash
 
 4) cd /opt/postgres/sctipts
-   bash -x ./mkdirs.sh
+	./mkdirs.sh
+	или
+	bash -x ./mkdirs.sh
+
+	-Если возникла ошибка /bin/bash^M: bad interpreter: No such file or directory (обычно если докер установлен на windows)
+		sed -i -e 's/\r$//' mkdirs.sh
+	и пробуем еще раз 
+		./mkdirs.sh		
 
 5) Дать полный доступ ко всей директории /opt/postgres
    chmod ugo+rwx -vR /opt/postgres
