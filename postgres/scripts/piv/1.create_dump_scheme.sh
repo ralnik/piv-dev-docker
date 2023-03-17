@@ -3,6 +3,7 @@ DUMP_SCHEME=/opt/postgres/dump/piv_schema.backup
 
 if [ -d "$DUMP_SCHEME" ]; then
    echo "piv_schema.backup already exist"
+   rm -r -v $DUMP_SCHEME
 else
     mkdir -v $DUMP_SCHEME
 fi

@@ -40,4 +40,12 @@ Stop and remove containers, networks. Ключ -v указывает, что т�
    postgres=# \i /opt/postgres/scripts/tablespace.sql
    postgres=# \i /opt/postgres/scripts/role.sql
 
-9)
+9) Для восстановления через bash прогнать скрипты в указанном порядке:
+   /opt/postgres/scripts/piv/1.create_dump_scheme.sh
+   /opt/postgres/scripts/piv/2.create_dump_data.sh
+   /opt/postgres/scripts/piv/3.restore_scheme.sh
+   /opt/postgres/scripts/piv/4.restore_data.sh
+
+
+9) После восстановления дампа, прогнать скрипты:
+   postgres=# \i /opt/postgres/scripts/run_afrer_restore.sql
